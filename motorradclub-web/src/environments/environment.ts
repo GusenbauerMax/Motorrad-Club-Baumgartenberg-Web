@@ -2,6 +2,9 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { ModuleWithProviders } from "@angular/core";
+import { AngularFireModule } from "@angular/fire";
+
 export const environment = {
   production: false
 };
