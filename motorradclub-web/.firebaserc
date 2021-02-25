@@ -1,7 +1,4 @@
 {
-  "projects": {
-    "default": "motorrad-club-baumgartenberg"
-  },
   "targets": {
     "motorrad-club-baumgartenberg": {
       "hosting": {
@@ -10,5 +7,8 @@
         ]
       }
     }
+  },
+  "projects": {
+    "default": "motorrad-club-baumgartenberg"
   }
 }
