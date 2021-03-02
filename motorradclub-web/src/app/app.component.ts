@@ -9,8 +9,8 @@ import { FirebaseAuthService } from './core/auth/firebase-auth.service';
 export class AppComponent {
   title = 'motorradclub-web';
 
-  public email: string = "";
-  public password: string = "";
+  public email: string = "test@gmail.com";
+  public password: string = "test123!";
 
   constructor(private firebaseAuthService: FirebaseAuthService) {
     
@@ -21,7 +21,7 @@ export class AppComponent {
     this.firebaseAuthService.signIn(this.email, this.password);
   }
 
-  public signUp() {
-    this.firebaseAuthService.signUp(this.email, this.password);
+  public logOut() {
+    this.firebaseAuthService.signOut();
   }
 }

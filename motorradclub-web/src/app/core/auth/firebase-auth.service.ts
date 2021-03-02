@@ -1,32 +1,40 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
+import { map, take, takeUntil } from 'rxjs/operators';
+import { AngularLifecycle } from 'src/app/helper/angular-lifecycle.helper';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FirebaseAuthService {
+export class FirebaseAuthService extends AngularLifecycle{
 
-  isLoggedIn = false;
-  constructor(public firebaseAuth : AngularFireAuth) { }
-
-  async signIn(email: string, password: string){
-    await this.firebaseAuth.signInWithEmailAndPassword(email, password)
-      .then(res => {
-        this.isLoggedIn = true;
-        localStorage.setItem('user', JSON.stringify(res.user))
-      })
+  constructor(
+    public afAuth : AngularFireAuth,
+    public afStore: AngularFirestore,
+    public router: Router
+  ) {
+    super();
   }
 
-  async signUp(email: string, password: string){
-    await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
+  async signIn(email: string, password: string){
+    await this.afAuth.signInWithEmailAndPassword(email, password)
       .then(res => {
-        this.isLoggedIn = true;
-        localStorage.setItem('user', JSON.stringify(res.user))
-      })
+        this.router.navigate(['admin']);
+      });
   }
 
   signOut(){
-    this.firebaseAuth.signOut();
-    localStorage.setItem('user', '');
+    this.afAuth.signOut();
+    this.router.navigate(['home']);
+  }
+
+  isLoggedIn$() {
+    return this.afAuth.authState.pipe(
+      takeUntil(this.destroyed$),
+      take(1),
+      map (user => !!user)
+    )
   }
 }
