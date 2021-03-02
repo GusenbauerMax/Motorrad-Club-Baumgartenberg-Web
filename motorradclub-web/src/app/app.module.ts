@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -26,10 +26,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AngularFirestoreModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    SharedModule
   ],
   exports: [
-    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { FirebaseAuthService } from './core/auth/firebase-auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +8,20 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'motorradclub-web';
-  items: Observable<any[]>;
-  constructor(firestore: AngularFirestore) {
-    this.items = firestore.collection('items').valueChanges();
+
+  public email: string = "";
+  public password: string = "";
+
+  constructor(private firebaseAuthService: FirebaseAuthService) {
+    
+  }
+
+  public signIn() {
+    console.log(this.email)
+    this.firebaseAuthService.signIn(this.email, this.password);
+  }
+
+  public signUp() {
+    this.firebaseAuthService.signUp(this.email, this.password);
   }
 }

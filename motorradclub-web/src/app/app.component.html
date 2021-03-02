@@ -1,6 +1,15 @@
 <mat-toolbar>Motorradclub Baumgartenberg</mat-toolbar>
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-    {{item.Name}}
-  </li>
-</ul>
+<router-outlet></router-outlet>
+<!-- <div>
+  <h2>Sign In</h2>
+  <input matInput  type="text" [(ngModel)]="email">
+  <input matInput  type="text" type="password" [(ngModel)]="password">
+  <button mat-button (click)="signIn()">Sign In</button>
+</div>
+<hr>
+<div>
+  <h2>Sign Up</h2>
+  <input matInput  type="text" [(ngModel)]="email">
+  <input matInput  type="text" type="password" [(ngModel)]="password">
+  <button mat-button (click)="signUp()">Sign Up</button>
+</div> -->
