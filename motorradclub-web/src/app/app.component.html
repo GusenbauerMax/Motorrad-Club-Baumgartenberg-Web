@@ -1,6 +1,6 @@
 <div fxLayout="column" fxFill class="window">
   <mat-toolbar>
-    <span fxFlex>Motorradclub Baumgartenberg</span>
+    <a fxFlex class="homeLink" [routerLink]="['/main']" routerLinkActive="router-link-active">Motorradclub Baumgartenberg</a>
     <button mat-icon-button matTooltip="Admin login" (click)="navigateLogin()" *ngIf="!showLogout">
       <mat-icon>login</mat-icon>
     </button>
