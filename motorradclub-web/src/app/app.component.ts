@@ -22,14 +22,14 @@ export class AppComponent extends AngularLifecycle{
 
     router.events.pipe(takeUntil(this.destroyed$)).subscribe((event : Event) => {
       if (event instanceof NavigationEnd){ 
-        this.showLogout = event.url === '/admin';
+        this.showLogout = event.url === '/admin/dashboard';
       }
     });
     
   }
 
   navigateLogin() {
-    this.router.navigate(['login']);
+    this.router.navigate(['/admin/login']);
   }
   
   public logOut() {

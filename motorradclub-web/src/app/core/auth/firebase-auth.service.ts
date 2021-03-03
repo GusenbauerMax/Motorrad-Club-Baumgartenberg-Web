@@ -21,7 +21,7 @@ export class FirebaseAuthService extends AngularLifecycle{
   async signIn(email: string, password: string){
     await this.afAuth.signInWithEmailAndPassword(email, password)
       .then(res => {
-        this.router.navigate(['admin']);
+        this.router.navigate(['admin/dashboard']);
       });
   }
 

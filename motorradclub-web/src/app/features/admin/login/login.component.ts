@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   }
 
   public signIn() {
-    console.log(this.email)
     this.firebaseAuthService.signIn(this.email, this.password);
   }
 
