@@ -1,11 +1,14 @@
-<mat-toolbar>
-  <span>Motorradclub Baumgartenberg</span>
-</mat-toolbar>
-<router-outlet></router-outlet>
-<div>
-  <h2>Sign In</h2>
-  <input matInput type="text" [(ngModel)]="email">
-  <input matInput type="text" type="password" [(ngModel)]="password">
-  <button mat-button (click)="signIn()">Sign In</button>
+<div fxLayout="column" fxFill class="window">
+  <mat-toolbar>
+    <span fxFlex>Motorradclub Baumgartenberg</span>
+    <button mat-icon-button matTooltip="Admin login" (click)="navigateLogin()" *ngIf="!showLogout">
+      <mat-icon>login</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Logout" (click)="logOut()" *ngIf="showLogout">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </mat-toolbar>
+  <div fxFlex fxLayout="column" class="content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<button mat-button (click)="logOut()">Log out</button>

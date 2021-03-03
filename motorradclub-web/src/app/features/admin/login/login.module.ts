@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LoginComponent } from './login.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { AdminRoutingModule } from './admin-routing.module';
-import { AdminComponent } from './admin-component/admin.component';
+import { AdminRoutingModule } from '../admin-routing.module';
 
 @NgModule({
   declarations: [
-    AdminComponent
+    LoginComponent
   ],
   imports: [
     CommonModule,
@@ -14,8 +14,7 @@ import { AdminComponent } from './admin-component/admin.component';
     AdminRoutingModule
   ],
   exports: [
-    AdminComponent
-  ],
-  
+    LoginComponent
+  ]
 })
-export class AdminModule { }
+export class LoginModule { }

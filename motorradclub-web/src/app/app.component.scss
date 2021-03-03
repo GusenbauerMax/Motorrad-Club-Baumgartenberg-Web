@@ -1,0 +1,20 @@
+.window {
+    background-color:rgb(238, 238, 238);
+}
+
+.content {
+    height: 100%;
+    margin: 24px;
+}
+
+@media (max-width: 719px) {
+    .content {
+        margin: 16px;
+    }
+}
+  
+.router-flex {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
