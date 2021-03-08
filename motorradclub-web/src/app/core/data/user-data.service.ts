@@ -39,4 +39,10 @@ export class UserDataService extends AngularLifecycle{
       tap(usr => console.log('Current user changed', usr))
     );
   }
+
+  // Post
+
+  public postUser(user) {
+    this.userDataSourceService.postUser(user);
+  }
 }

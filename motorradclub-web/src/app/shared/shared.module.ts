@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -24,7 +25,8 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   exports: [
     FlexLayoutModule,
@@ -35,7 +37,8 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ]
 })
 export class SharedModule { }

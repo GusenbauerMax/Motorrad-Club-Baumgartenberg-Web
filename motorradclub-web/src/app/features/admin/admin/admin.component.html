@@ -1,1 +1,76 @@
-<p>admin works!</p>
+<div fxFlex fxLayout="row" fxLayoutGap="24px"  fxLayout.xs="column" fxLayoutGap.xs="16px">
+    <mat-card fxFlex fxLayout="column" >
+        <h1>Bilder hochladen</h1>
+        <div fxLayout="column" fxFlex class="container">
+            <mat-form-field appearance="outline">
+                <input matInput type="text" placeholder="Name der Sammlung">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <textarea class="description" matInput rows="4" placeholder="Kurze Beschreibung"></textarea>
+            </mat-form-field>
+
+            <button mat-stroked-button >Bilder auswählen</button>
+            <div fxFlex>
+                
+            </div>
+            <button mat-stroked-button >Bilder hochladen</button>
+        </div>
+    </mat-card>
+    <mat-card fxFlex fxLayout="column" fxLayoutGap="24px">
+        <h1>Nutzer kunfiguration</h1>
+        <div fxLayout="column">
+            <h2>Admins hinzufügen</h2>
+            <mat-form-field appearance="outline">
+                <input matInput type="text" placeholder="Vorname" [(ngModel)]="newFirstName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <input matInput type="text" placeholder="Nachname" [(ngModel)]="newLastName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <input matInput type="email" placeholder="E-Mail" [(ngModel)]="newEmail">
+            </mat-form-field>
+            <button mat-stroked-button (click)="addUser()">Hinzufügen</button>
+        </div>
+        <div fxLayout="column">
+            <h2>Admins bearbeiten</h2>   
+            <table fxFlex mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef> Vorname </th>
+                    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef> Nachname </th>
+                    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> E-Mail </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="edit">
+                    <th mat-header-cell *matHeaderCellDef> Bearbeiten </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Löschen </th>
+                    <td mat-cell *matCellDef="let element" (click)="removeUser(element)">
+                        <button mat-icon-button>
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>     
+        </div>
+    </mat-card>
+</div>
